@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O‘qituvchi Paneli - Matematik Duel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="host-page">
+    <div class="math-bg">
+        <span>∫</span><span>d/dx</span><span>π</span><span>sin</span><span>cos</span><span>x²</span>
+    </div>
+
+    <div id="lobby" class="panel">
+        <div class="header">
+            <h1>Matematik Duel - Lobby</h1>
+            <div class="controls">
+                <button id="start-btn" class="btn btn-success">O‘yinni boshlash</button>
+                <button id="restart-btn-lobby" class="btn btn-danger">Restart</button>
+            </div>
+        </div>
+
+        <div class="codes-container">
+            <div class="code-card group1">
+                <h2>1-Guruh Kodi</h2>
+                <div id="code1" class="big-code">----</div>
+            </div>
+            <div class="code-card group2">
+                <h2>2-Guruh Kodi</h2>
+                <div id="code2" class="big-code">----</div>
+            </div>
+        </div>
+
+        <div class="students-lists">
+            <div class="list-card">
+                <h3>1-Guruh Talabalari (<span id="count1">0</span>)</h3>
+                <ul id="list1"></ul>
+            </div>
+            <div class="list-card">
+                <h3>2-Guruh Talabalari (<span id="count2">0</span>)</h3>
+                <ul id="list2"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="game" class="panel hidden">
+        <div class="game-header">
+            <div class="timer-box">
+                <span id="timer">45</span>
+            </div>
+            <div class="question-info">
+                Savol <span id="q-index">0</span>/15
+            </div>
+            <div class="game-controls">
+                <button id="stop-btn" class="btn btn-danger btn-sm">To‘xtatish</button>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <h2 id="question-text">Matematik savol shu yerda bo‘ladi...</h2>
+            <div class="options-grid">
+                <div class="option" data-index="0">A: <span id="opt0"></span></div>
+                <div class="option" data-index="1">B: <span id="opt1"></span></div>
+                <div class="option" data-index="2">C: <span id="opt2"></span></div>
+                <div class="option" data-index="3">D: <span id="opt3"></span></div>
+            </div>
+        </div>
+
+        <div class="live-stats">
+            <h3>Jonli statistika:</h3>
+            <div class="stats-bars">
+                <div class="stat-item">A: <span id="statA">0</span></div>
+                <div class="stat-item">B: <span id="statB">0</span></div>
+                <div class="stat-item">C: <span id="statC">0</span></div>
+                <div class="stat-item">D: <span id="statD">0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scoreboard" class="panel hidden">
+        <h1>Natijalar</h1>
+        <div class="scores-display">
+            <div class="score-card g1">
+                <h2 id="sb-name1">1-Guruh</h2>
+                <div id="sb-score1" class="big-score">0</div>
+                <span>BALL</span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="score-card g2">
+                <h2 id="sb-name2">2-Guruh</h2>
+                <div id="sb-score2" class="big-score">0</div>
+                <span>BALL</span>
+            </div>
+        </div>
+        <div class="sb-controls">
+            <button id="next-btn" class="btn btn-primary">Keyingi savol</button>
+        </div>
+    </div>
+
+    <div id="result" class="panel hidden">
+        <div class="winner-announcement">
+            <div id="crown" class="crown">👑</div>
+            <h1 id="winner-name">G‘olib Guruh!</h1>
+            <div id="winner-score" class="final-score">0 BALL</div>
+            <p id="loser-msg" class="loser-msg">Bugun omad kulib boqmadi 😄</p>
+        </div>
+        <button id="final-restart-btn" class="btn btn-success">Yangi o‘yin</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

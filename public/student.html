@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talaba - Matematik Duel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="student-page">
+    <div class="math-bg">
+        <span>∫</span><span>d/dx</span><span>π</span><span>sin</span><span>cos</span><span>x²</span>
+    </div>
+
+    <div id="join-screen" class="panel">
+        <h1>Matematik o‘yinga qo‘shilish</h1>
+        <div class="form-group">
+            <label>Ismingizni kiriting:</label>
+            <input type="text" id="student-name" placeholder="Masalan: Ali" maxlength="15">
+        </div>
+        <div class="form-group">
+            <label>Guruh kodini kiriting:</label>
+            <input type="number" id="group-code" placeholder="7421">
+        </div>
+        <button id="join-btn" class="btn btn-primary w-100">O‘yinga qo‘shilish</button>
+        <p id="error-msg" class="error"></p>
+    </div>
+
+    <div id="waiting-screen" class="panel hidden">
+        <div class="status-card">
+            <h2 id="display-group">Guruh nomi</h2>
+            <p>Salom, <span id="display-name">Talaba</span>!</p>
+            <div class="loader"></div>
+            <p>O‘qituvchi o‘yinni boshlashini kuting...</p>
+        </div>
+    </div>
+
+    <div id="play-screen" class="panel hidden">
+        <div class="question-header">
+            <div id="student-timer" class="mini-timer">45</div>
+            <div id="q-progress">Savol 1/15</div>
+        </div>
+        <h2 id="student-question">Savol yuklanmoqda...</h2>
+        <div class="student-options">
+            <button class="answer-btn" data-index="0">A</button>
+            <button class="answer-btn" data-index="1">B</button>
+            <button class="answer-btn" data-index="2">C</button>
+            <button class="answer-btn" data-index="3">D</button>
+        </div>
+        <div id="feedback" class="feedback hidden"></div>
+    </div>
+
+    <div id="student-scoreboard" class="panel hidden">
+        <h2>Natijalar</h2>
+        <div class="mini-scores">
+            <div class="mini-score-card">
+                <p id="s-g1-name">1-Guruh</p>
+                <h3 id="s-g1-score">0</h3>
+            </div>
+            <div class="mini-score-card">
+                <p id="s-g2-name">2-Guruh</p>
+                <h3 id="s-g2-score">0</h3>
+            </div>
+        </div>
+        <p class="wait-msg">Keyingi savolni kuting...</p>
+    </div>
+
+    <div id="student-result" class="panel hidden">
+        <h1>O‘yin tugadi!</h1>
+        <div id="final-status"></div>
+        <p>Ishtirokingiz uchun rahmat!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
